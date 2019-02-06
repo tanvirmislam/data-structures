@@ -17,6 +17,8 @@ int main() {
 	minh.insert(10);
 	minh.insert(8);
 	minh.insert(-8);
+	minh.insert(-8);
+	minh.insert(-8);
 	minh.insert(9);
 
 	std::cout << "extracting: " << minh.extractMin() << std::endl;
