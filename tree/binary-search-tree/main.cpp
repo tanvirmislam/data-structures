@@ -13,8 +13,8 @@ void test1() {
 	                              2    12
 	                             /\    /  \
 	                           -4 3   9    21
-	                                   \  / \
-	                                  10 19  25
+	                                      / \
+	                                     19  25
 	                                       \
 	                                       20
 
@@ -33,32 +33,37 @@ void test1() {
 	*/
 
 	BST<long> tree;
-	tree.addValue(5);
-	tree.addValue(2);
-	tree.addValue(12);
-	tree.addValue(-4);
-	tree.addValue(3);
-	tree.addValue(9);
-	tree.addValue(21);
-	tree.addValue(10);
-	tree.addValue(19);
-	tree.addValue(25);
-	tree.addValue(20);
+	tree.add(5);
+	tree.add(2);
+	tree.add(12);
+	tree.add(-4);
+	tree.add(3);
+	tree.add(9);
+	tree.add(21);
+	tree.add(19);
+	tree.add(25);
+	tree.add(20);
 
 	tree.printBreadthFirst();
 	tree.printInorder();
 	tree.printPreorder();
 	tree.printPostorder();
 
-	//tree.invertTree();
-	//tree.printBreadthFirst();
+	cout << "Is valid BST? " << (tree.validateTree() ? "YES" : "NO") << endl;
 
-	// cout << "\nDeleting node...\n" << endl;
-	// tree.deleteNode(-4);
-	// tree.printBreadthFirst();
+	cout << "\nDeleting node..." << endl;
+	tree.deleteNode(19);
+	tree.deleteNode(25);
+	tree.deleteNode(5);
+	tree.printBreadthFirst();
 
+	cout << "Is valid BST? " << (tree.validateTree() ? "YES" : "NO") << endl;
 
-	tree.deleteTree();
+	cout << "\nInverting tree..." << endl;
+	tree.invertTree();
+	tree.printBreadthFirst();
+
+	cout << "Is valid BST? " << (tree.validateTree() ? "YES" : "NO") << endl;
 }
 
 int main(int argc, char* argv[]) {
